@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Card Wars | Selección</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/seleccion.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <a href="./inicio.html" class="navbar__logo">
+            Card Wars
+        </a>
+
+        <div class="navbar__links">
+
+            <a href="./inicio.html">
+                Inicio
+            </a>
+
+            <a href="./seleccion.html">
+                Selección
+            </a>
+
+            <a href="./batalla.html">
+                Batalla
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="selection">
+
+        <header class="selection__header">
+
+            <h1>
+                Prepara tu batalla
+            </h1>
+
+            <p id="selection-counter">
+                Cartas seleccionadas: 0/5
+            </p>
+
+        </header>
+
+
+        <!-- SELECCIÓN DEL MAPA -->
+
+        <section class="map-selection">
+
+            <h2>
+                Elige tu mapa
+            </h2>
+
+            <div
+                id="map-selection-container"
+                class="map-selection__container"
+            ></div>
+
+        </section>
+
+
+        <!-- SELECCIÓN DE CARTAS -->
+
+        <section class="cards-selection">
+
+            <h2>
+                Elige tus 5 cartas
+            </h2>
+
+            <p id="map-message">
+                Primero debes seleccionar un mapa.
+            </p>
+
+            <div
+                id="cards-container"
+                class="cards-container"
+            ></div>
+
+        </section>
+
+
+        <button
+            id="start-battle"
+            class="selection__button"
+            disabled
+        >
+            Ir a la batalla
+        </button>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="../js/seleccion.js"
+    ></script>
+
+</body>
+
+</html>
