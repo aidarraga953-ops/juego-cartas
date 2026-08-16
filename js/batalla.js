@@ -33,7 +33,8 @@ const attackButton =
 let playerCards =
     gameData.cartas.map((carta) => ({
         ...carta,
-        vida: carta.vida
+        vida: carta.vida,
+        vidaMaxima: carta.vida
     }));
 
 
@@ -81,16 +82,50 @@ function crearCarta(carta, tipo, index) {
         `Tipo: ${carta.tipo}`;
 
 
+    const healthText =
+    document.createElement("p");
+
+    healthText.classList.add("health__text");
+
+    healthText.textContent =
+        `❤️ ${carta.vida} / ${carta.vidaMaxima}`;
+
+
+    const health =
+        document.createElement("div");
+
+    health.classList.add("health");
+
+
+    const healthBar =
+        document.createElement("div");
+
+    healthBar.classList.add("health__bar");
+
+
+    const porcentajeVida =
+        (carta.vida / carta.vidaMaxima) * 100;
+
+
+    healthBar.style.width =
+        `${porcentajeVida}%`;
+
+
+    health.appendChild(healthBar);
+
+
     const stats =
         document.createElement("p");
 
     stats.textContent =
-        `❤️ ${carta.vida} | ⚔️ ${carta.ataque}`;
+        `⚔️ ${carta.ataque}`;
 
 
     card.appendChild(title);
 
     card.appendChild(type);
+    card.appendChild(health);
+    card.appendChild(healthText);
 
     card.appendChild(stats);
 
@@ -276,9 +311,9 @@ function crearEquipoEnemigo() {
 
         const enemyCard = {
             ...randomCard,
-            vida: randomCard.vida
+            vida: randomCard.vida,
+            vidaMaxima: randomCard.vida
         };
-
 
         const alreadyExists =
             enemyCards.some(
