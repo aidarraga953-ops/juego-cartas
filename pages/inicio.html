@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Card Wars | Inicio</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <a href="./inicio.html" class="navbar__logo">
+            CARD WARS
+        </a>
+
+
+        <ul class="navbar__links">
+
+            <li>
+                <a
+                    href="./inicio.html"
+                    class="navbar__link navbar__link--active"
+                >
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="./seleccion.html"
+                    class="navbar__link"
+                >
+                    Cartas
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="./batalla.html"
+                    class="navbar__link"
+                >
+                    Batalla
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="./resultado.html"
+                    class="navbar__link"
+                >
+                    Resultado
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="navbar__player">
+
+            <!-- Después colocaremos aquí el avatar real -->
+
+            <span class="navbar__player-name">
+                Jugador
+            </span>
+
+        </div>
+
+    </nav>
+
+    <main class="inicio">
+
+        <section class="inicio__container">
+
+            <header class="inicio__header">
+
+                <p class="inicio__welcome">
+                    Bienvenido a
+                </p>
+
+                <h1>
+                    CARD WARS
+                </h1>
+
+                <p class="inicio__description">
+                    Prepárate para construir tu equipo,
+                    elegir tu reino y entrar en batalla.
+                </p>
+
+            </header>
+
+
+            <section class="inicio__how-to-play">
+
+                <h2>
+                    ¿Cómo se juega?
+                </h2>
+
+                <div class="rules">
+
+                    <article class="rule">
+                        <span class="rule__icon">🃏</span>
+
+                        <h3>
+                            Elige tus cartas
+                        </h3>
+
+                        <p>
+                            Selecciona cinco cartas para
+                            formar tu equipo.
+                        </p>
+                    </article>
+
+
+                    <article class="rule">
+                        <span class="rule__icon">🗺️</span>
+
+                        <h3>
+                            Elige tu reino
+                        </h3>
+
+                        <p>
+                            Escoge el mapa donde
+                            tendrá lugar la batalla.
+                        </p>
+                    </article>
+
+
+                    <article class="rule">
+                        <span class="rule__icon">⚔️</span>
+
+                        <h3>
+                            Entra en batalla
+                        </h3>
+
+                        <p>
+                            Utiliza tus cartas y sus
+                            habilidades para derrotar a tu rival.
+                        </p>
+                    </article>
+
+
+                    <article class="rule">
+                        <span class="rule__icon">✨</span>
+
+                        <h3>
+                            Usa tus habilidades
+                        </h3>
+
+                        <p>
+                            Cada carta posee una habilidad
+                            especial que puede cambiar la batalla.
+                        </p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <button
+                type="button"
+                id="start-game"
+                class="inicio__button"
+            >
+                Comenzar partida
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script type="module" src="../js/inicio.js"></script>
+
+</body>
+
+</html>

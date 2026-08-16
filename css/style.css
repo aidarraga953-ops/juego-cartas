@@ -1,3 +1,7 @@
+/* =========================
+   ROOT
+========================= */
+
 :root {
     /* Colores principales */
     --color-primary: #7c3aed;
@@ -23,14 +27,184 @@
     --transition-normal: 0.3s ease;
 } 
 
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* =========================
+   BODY
+========================= */
+
 body {
     font-family: var(--font-main);
     background-color: var(--color-background);
     color: var(--color-text);
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 2rem;
+
+    background-color: var(--color-surface);
+
+    box-shadow: var(--shadow-card);
+}
+
+
+/* Logo */
+
+.navbar__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+
+    transition: var(--transition-normal);
+}
+
+.navbar__logo:hover {
+    transform: scale(1.05);
+}
+
+
+/* Links */
+
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    list-style: none;
+}
+
+.navbar__link {
+    position: relative;
+
+    padding: 0.5rem 0;
+
+    color: var(--color-text-secondary);
+
+    transition: var(--transition-fast);
+}
+
+.navbar__link:hover {
+    color: var(--color-text);
+}
+
+
+/* Link activo */
+
+.navbar__link--active {
+    color: var(--color-text);
+}
+
+.navbar__link--active::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: var(--color-primary);
+}
+
+
+/* Jugador */
+
+.navbar__player {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.navbar__avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid var(--color-primary);
+}
+
+.navbar__player-name {
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   MEDIA QUERIES
+========================= */
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0 1rem;
+    }
+
+    .navbar__links {
+        gap: 1rem;
+    }
+
+    .navbar__player-name {
+        display: none;
+    }
+}
+
+
+/* Móvil */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+
+        padding: 1rem;
+    }
+
+    .navbar__links {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 1rem;
+
+        flex-wrap: wrap;
+    }
+
+    .navbar__logo {
+        font-size: 1.3rem;
+    }
 }
