@@ -1,0 +1,181 @@
+/* =========================
+   CONTENEDOR DE INICIO
+========================= */
+
+.inicio {
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+}
+
+.inicio__container {
+    width: min(100%, 900px);
+
+    text-align: center;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.inicio__header {
+    margin-bottom: 3rem;
+}
+
+.inicio__welcome {
+    margin-bottom: 0.5rem;
+
+    color: var(--color-text-secondary);
+}
+
+.inicio__header h1 {
+    margin-bottom: 1rem;
+
+    color: var(--color-primary);
+    font-size: 3rem;
+}
+
+.inicio__description {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+
+/* =========================
+   ¿CÓMO SE JUEGA?
+========================= */
+
+.inicio__how-to-play h2 {
+    margin-bottom: 2rem;
+
+    font-size: 2rem;
+}
+
+
+/* =========================
+   TARJETAS DE INFORMACIÓN
+========================= */
+
+.rules {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1.5rem;
+}
+
+.rule {
+    padding: 1.5rem;
+
+    background-color: var(--color-surface);
+
+    border-radius: var(--radius-medium);
+
+    box-shadow: var(--shadow-card);
+
+    transition: var(--transition-normal);
+}
+
+.rule:hover {
+    transform: translateY(-5px);
+}
+
+.rule__icon {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    font-size: 2rem;
+}
+
+.rule h3 {
+    margin-bottom: 0.7rem;
+}
+
+.rule p {
+    color: var(--color-text-secondary);
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+.inicio__button {
+    margin-top: 2.5rem;
+
+    padding: 1rem 2.5rem;
+
+    border: none;
+    border-radius: var(--radius-medium);
+
+    background-color: var(--color-primary);
+
+    color: var(--color-text);
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: var(--transition-normal);
+}
+
+.inicio__button:hover {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .inicio {
+        padding: 1.5rem;
+    }
+
+    .inicio__header h1 {
+        font-size: 2.5rem;
+    }
+
+    .rules {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .inicio {
+        padding: 1rem;
+    }
+
+    .inicio__header h1 {
+        font-size: 2rem;
+    }
+
+    .inicio__how-to-play h2 {
+        font-size: 1.5rem;
+    }
+
+    .rule {
+        padding: 1.2rem;
+    }
+
+    .inicio__button {
+        width: 100%;
+    }
+}
