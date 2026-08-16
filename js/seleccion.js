@@ -283,5 +283,6 @@ startBattleButton.addEventListener("click", () => {
         "cardWarsGame",
         JSON.stringify(gameData)
     );
-
+    
+    window.location.href = "./batalla.html";
 });

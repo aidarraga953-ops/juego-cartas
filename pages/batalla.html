@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Card Wars | Batalla</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/batalla.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <a href="./inicio.html" class="navbar__logo">
+            Card Wars
+        </a>
+
+        <div class="navbar__links">
+
+            <a href="./inicio.html">
+                Inicio
+            </a>
+
+            <a href="./seleccion.html">
+                Selección
+            </a>
+
+            <a href="./batalla.html">
+                Batalla
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="battle">
+
+        <header class="battle__header">
+
+            <h1>
+                Batalla
+            </h1>
+
+            <p id="battle-map">
+                Mapa
+            </p>
+
+        </header>
+
+
+        <section class="battle__board">
+
+            <div class="battle__player">
+
+                <h2>
+                    Tu equipo
+                </h2>
+
+                <div
+                    id="player-cards"
+                    class="battle__cards"
+                ></div>
+
+            </div>
+
+
+            <div class="battle__vs">
+
+                <span>
+                    VS
+                </span>
+
+            </div>
+
+
+            <div class="battle__enemy">
+
+                <h2>
+                    Enemigo
+                </h2>
+
+                <div
+                    id="enemy-cards"
+                    class="battle__cards"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <section class="battle__actions">
+
+            <button id="attack-button">
+                Atacar
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="../js/batalla.js"
+    ></script>
+
+</body>
+
+</html>
