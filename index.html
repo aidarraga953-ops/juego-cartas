@@ -6,16 +6,113 @@
     <title>Card Wars</title>
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <body>
 
-    <main>
-        <h1>Card Wars</h1>
-        <p>Bienvenido a Card Wars</p>
+    <main class="login">
+
+        <section class="login__container">
+
+            <header class="login__header">
+                <h1>Card Wars</h1>
+                <p>Prepárate para la batalla</p>
+            </header>
+
+            <form id="login-form">
+
+                <div class="login__field">
+                    <label for="nombre">¿Cómo te llamas?</label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Escribe tu nombre"
+                        required
+                    >
+                </div>
+
+                <div class="login__avatars">
+
+                    <h2>Elige tu avatar</h2>
+
+                    <div class="avatars">
+
+                        <button
+                            type="button"
+                            class="avatar"
+                            data-avatar="finn"
+                        >
+                            Finn
+                        </button>
+
+                        <button
+                            type="button"
+                            class="avatar"
+                            data-avatar="jake"
+                        >
+                            Jake
+                        </button>
+
+                        <button
+                            type="button"
+                            class="avatar"
+                            data-avatar="marceline"
+                        >
+                            Marceline
+                        </button>
+
+                        <button
+                            type="button"
+                            class="avatar"
+                            data-avatar="princesa-chicle"
+                        >
+                            Princesa Chicle
+                        </button>
+                        
+                        <button
+                            type="button"
+                            class="avatar"
+                            data-avatar="rey-helado"
+                        >
+                            Rey Helado
+                        </button>
+
+                        <button
+                            type="button"
+                            class="avatar"
+                            data-avatar="princes-llama"
+                        >
+                            Flama
+                        </button>
+
+                        <button
+                            type="button"
+                            class="avatar"
+                            data-avatar="mayordomo-mentita"
+                        >
+                            Mentita
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="login__button">
+                    Jugar
+                </button>
+
+            </form>
+
+        </section>
+
     </main>
 
     <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/login.js"></script>
+
 
 </body>
 </html>
