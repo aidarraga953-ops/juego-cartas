@@ -1,25 +1,6 @@
-.battle-card {
-    padding: 20px;
-    border-radius: 15px;
-    background-color: #211a2c;
-    border: 3px solid transparent;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.battle-card:hover {
-    transform: translateY(-5px);
-}
-
-.battle-card--selected {
-    border-color: #7c3aed;
-    transform: translateY(-5px);
-}
-
-.battle-card--target {
-    border-color: #ef4444;
-    transform: translateY(-5px);
-}
+/* =========================
+   BATALLA
+========================= */
 
 .battle {
     width: 90%;
@@ -27,6 +8,11 @@
     margin: 0 auto;
     padding: 40px 0;
 }
+
+
+/* =========================
+   CABECERA
+========================= */
 
 .battle__header {
     text-align: center;
@@ -37,87 +23,376 @@
     margin-bottom: 10px;
 }
 
+
+/* =========================
+   TABLERO
+========================= */
+
 .battle__board {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    gap: 30px;
+    gap: 40px;
     align-items: center;
 }
 
-.battle__player,
-.battle__enemy {
+.battle__side {
     text-align: center;
 }
 
-.battle__cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-top: 20px;
+.battle__side h2 {
+    margin-bottom: 20px;
 }
 
-.battle__vs {
-    font-size: 2rem;
-    font-weight: bold;
-}
 
-.battle-card {
-    padding: 20px;
-    border-radius: 15px;
-    background-color: #211a2c;
-    border: 2px solid transparent;
-}
+/* =========================
+   CARTA ACTIVA
+========================= */
 
-.battle-card h3 {
-    margin-bottom: 10px;
-}
-
-.battle__actions {
+.battle__active-card {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    min-height: 430px;
 }
 
-.battle__actions button {
-    padding: 15px 40px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+
+/* =========================
+   CARTA GRANDE
+========================= */
+
+.battle-card--large {
+    width: 320px;
+    min-height: 430px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    border-radius: 20px;
+
+    background-color: #211a2c;
+
+    border: 3px solid #7c3aed;
+
+    box-shadow:
+        0 0 20px rgba(124, 58, 237, 0.3);
+
+    transition: 0.3s ease;
 }
 
-.health {
-    width: 100%;
-    height: 10px;
-    background-color: #3a3345;
-    border-radius: 10px;
-    overflow: hidden;
+
+.battle-card--large:hover {
+    transform: translateY(-5px);
+}
+
+
+.battle-card--large h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+
+.battle-card__ability {
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   INFORMACIÓN DE CARTA
+========================= */
+
+.battle-card p {
     margin: 8px 0;
 }
 
+
+/* =========================
+   BARRA DE VIDA
+========================= */
+
+.health {
+    width: 100%;
+
+    height: 12px;
+
+    background-color: #3a3345;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin: 10px 0;
+}
+
+
 .health__bar {
     width: 100%;
+
     height: 100%;
+
     background-color: #e63946;
+
     border-radius: 10px;
+
     transition: width 0.4s ease;
 }
+
 
 .health__text {
     margin: 5px 0;
 }
 
-@media (max-width: 800px) {
+
+/* =========================
+   BOTONES DENTRO DE CARTA
+========================= */
+
+.battle-card__actions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+.battle-card__actions button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    color: white;
+
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #ec4899,
+        #06b6d4,
+        #7c3aed
+    );
+
+    background-size: 300% 100%;
+
+    animation: rainbowButton 5s linear infinite;
+
+    transition: 0.3s ease;
+}
+
+
+.battle-card__actions button:hover {
+    transform: scale(1.03);
+}
+
+
+@keyframes rainbowButton {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* =========================
+   VS
+========================= */
+
+.battle__vs {
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* =========================
+   EQUIPO DEL JUGADOR
+========================= */
+
+.battle__team {
+    margin-top: 35px;
+
+    text-align: center;
+}
+
+
+.battle__team h2 {
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   MINI CARTAS
+========================= */
+
+.battle__cards {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    padding: 15px 10px;
+}
+
+
+.battle-card--small {
+    flex: 0 0 100px;
+
+    width: 100px;
+
+    height: 120px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background-color: #211a2c;
+
+    border: 3px solid transparent;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.battle-card--small h3 {
+    font-size: 0.85rem;
+
+    margin-bottom: 8px;
+}
+
+
+.battle-card--small p {
+    font-size: 0.8rem;
+}
+
+
+.battle-card--small:hover {
+    transform: translateY(-6px);
+}
+
+
+/* =========================
+   CARTA SELECCIONADA
+========================= */
+
+.battle-card--small.battle-card--selected {
+
+    border-color: #7c3aed;
+
+    box-shadow:
+        0 0 15px rgba(124, 58, 237, 0.8);
+
+    transform:
+        translateY(-10px)
+        scale(1.05);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
 
     .battle__board {
+
         grid-template-columns: 1fr;
+
+        gap: 25px;
+
     }
+
 
     .battle__vs {
-        text-align: center;
+
+        order: 2;
+
     }
 
-    .battle__cards {
-        grid-template-columns: 1fr;
+
+    .battle__side--enemy {
+
+        order: 3;
+
+    }
+
+
+    .battle__side--player {
+
+        order: 1;
+
+    }
+
+
+    .battle-card--large {
+
+        width: 300px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .battle {
+
+        width: 95%;
+
+        padding: 25px 0;
+
+    }
+
+
+    .battle-card--large {
+
+        width: 270px;
+
+        min-height: 400px;
+
+    }
+
+
+    .battle-card--small {
+
+        flex: 0 0 85px;
+
+        width: 85px;
+
+        height: 105px;
+
     }
 
 }

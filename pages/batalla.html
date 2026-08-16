@@ -2,22 +2,43 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Card Wars | Batalla</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/batalla.css">
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/batalla.css"
+    >
+
 </head>
+
 
 <body>
 
+
+    <!-- NAVBAR -->
+
     <nav class="navbar">
 
-        <a href="./inicio.html" class="navbar__logo">
+        <a
+            href="./inicio.html"
+            class="navbar__logo"
+        >
             Card Wars
         </a>
+
 
         <div class="navbar__links">
 
@@ -38,7 +59,13 @@
     </nav>
 
 
+
+    <!-- BATALLA -->
+
     <main class="battle">
+
+
+        <!-- CABECERA -->
 
         <header class="battle__header">
 
@@ -53,21 +80,31 @@
         </header>
 
 
+
+        <!-- TABLERO -->
+
         <section class="battle__board">
 
-            <div class="battle__player">
+
+            <!-- JUGADOR -->
+
+            <div class="battle__side battle__side--player">
 
                 <h2>
-                    Tu equipo
+                    Tu carta
                 </h2>
 
+
                 <div
-                    id="player-cards"
-                    class="battle__cards"
+                    id="active-player-card"
+                    class="battle__active-card"
                 ></div>
 
             </div>
 
+
+
+            <!-- VS -->
 
             <div class="battle__vs">
 
@@ -78,37 +115,56 @@
             </div>
 
 
-            <div class="battle__enemy">
+
+            <!-- ENEMIGO -->
+
+            <div class="battle__side battle__side--enemy">
 
                 <h2>
                     Enemigo
                 </h2>
 
+
                 <div
-                    id="enemy-cards"
-                    class="battle__cards"
+                    id="active-enemy-card"
+                    class="battle__active-card"
                 ></div>
 
             </div>
 
-        </section>
-
-
-        <section class="battle__actions">
-
-            <button id="attack-button">
-                Atacar
-            </button>
 
         </section>
+
+
+
+        <!-- CARTAS DEL JUGADOR -->
+
+        <section class="battle__team">
+
+            <h2>
+                Tus cartas
+            </h2>
+
+
+            <div
+                id="player-cards"
+                class="battle__cards"
+            ></div>
+
+        </section>
+
 
     </main>
 
+
+
+    <!-- JAVASCRIPT -->
 
     <script
         type="module"
         src="../js/batalla.js"
     ></script>
+
 
 </body>
 

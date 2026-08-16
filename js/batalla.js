@@ -1,10 +1,15 @@
+/* =========================
+   DATOS DEL JUEGO
+========================= */
+
 const battleData =
     localStorage.getItem("cardWarsGame");
 
 
 if (!battleData) {
 
-    window.location.href = "./seleccion.html";
+    window.location.href =
+        "./seleccion.html";
 
 }
 
@@ -13,42 +18,72 @@ const gameData =
     JSON.parse(battleData);
 
 
+/* =========================
+   ELEMENTOS DEL HTML
+========================= */
+
 const battleMap =
-    document.getElementById("battle-map");
+    document.getElementById(
+        "battle-map"
+    );
+
 
 const playerCardsContainer =
-    document.getElementById("player-cards");
+    document.getElementById(
+        "player-cards"
+    );
 
-const enemyCardsContainer =
-    document.getElementById("enemy-cards");
 
-const attackButton =
-    document.getElementById("attack-button");
+const activePlayerCardContainer =
+    document.getElementById(
+        "active-player-card"
+    );
+
+
+const activeEnemyCardContainer =
+    document.getElementById(
+        "active-enemy-card"
+    );
 
 
 /* =========================
-   VARIABLES DEL JUEGO
+   CARTAS DEL JUGADOR
 ========================= */
 
 let playerCards =
-    gameData.cartas.map((carta) => ({
-        ...carta,
-        vida: carta.vida,
-        vidaMaxima: carta.vida
-    }));
+    gameData.cartas.map(
+        (carta) => ({
 
+            ...carta,
+
+            vida: carta.vida,
+
+            vidaMaxima: carta.vida
+
+        })
+    );
+
+
+/* =========================
+   CARTAS DEL ENEMIGO
+========================= */
 
 let enemyCards = [];
 
 
+/* =========================
+   ESTADO DE LA BATALLA
+========================= */
+
 let selectedPlayerCard = null;
 
+let activeEnemyCard = null;
 
 let turno = "jugador";
 
 
 /* =========================
-   MOSTRAR MAPA
+   MAPA
 ========================= */
 
 battleMap.textContent =
@@ -56,225 +91,441 @@ battleMap.textContent =
 
 
 /* =========================
-   CREAR CARTA
+   CREAR CARTA GRANDE
 ========================= */
 
-function crearCarta(carta, tipo, index) {
+function crearCartaGrande(carta) {
 
     const card =
-        document.createElement("article");
+        document.createElement(
+            "article"
+        );
 
 
-    card.classList.add("battle-card");
+    card.classList.add(
+        "battle-card",
+        "battle-card--large"
+    );
 
+
+    /* NOMBRE */
 
     const title =
-        document.createElement("h3");
+        document.createElement(
+            "h3"
+        );
 
     title.textContent =
         carta.nombre;
 
 
+    /* TIPO */
+
     const type =
-        document.createElement("p");
+        document.createElement(
+            "p"
+        );
 
     type.textContent =
         `Tipo: ${carta.tipo}`;
 
 
-    const healthText =
-    document.createElement("p");
+    /* VIDA */
 
-    healthText.classList.add("health__text");
+    const healthText =
+        document.createElement(
+            "p"
+        );
+
+
+    healthText.classList.add(
+        "health__text"
+    );
+
 
     healthText.textContent =
         `❤️ ${carta.vida} / ${carta.vidaMaxima}`;
 
 
-    const health =
-        document.createElement("div");
+    /* BARRA */
 
-    health.classList.add("health");
+    const health =
+        document.createElement(
+            "div"
+        );
+
+
+    health.classList.add(
+        "health"
+    );
 
 
     const healthBar =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    healthBar.classList.add("health__bar");
+
+    healthBar.classList.add(
+        "health__bar"
+    );
 
 
     const porcentajeVida =
-        (carta.vida / carta.vidaMaxima) * 100;
+        (
+            carta.vida /
+            carta.vidaMaxima
+        ) * 100;
 
 
     healthBar.style.width =
         `${porcentajeVida}%`;
 
 
-    health.appendChild(healthBar);
+    health.appendChild(
+        healthBar
+    );
 
 
-    const stats =
-        document.createElement("p");
+    /* ATAQUE */
 
-    stats.textContent =
+    const attack =
+        document.createElement(
+            "p"
+        );
+
+
+    attack.textContent =
         `⚔️ ${carta.ataque}`;
 
+
+    /* HABILIDAD */
+
+    const ability =
+        document.createElement(
+            "p"
+        );
+
+
+    ability.classList.add(
+        "battle-card__ability"
+    );
+
+
+    ability.textContent =
+        `✨ ${carta.habilidad}`;
+
+
+    /* AGREGAR INFORMACIÓN */
 
     card.appendChild(title);
 
     card.appendChild(type);
-    card.appendChild(health);
-    card.appendChild(healthText);
 
-    card.appendChild(stats);
+    card.appendChild(
+        healthText
+    );
 
+    card.appendChild(
+        health
+    );
 
-    /*
-        SOLO las cartas del jugador
-        se pueden seleccionar.
-    */
+    card.appendChild(
+        attack
+    );
 
-    if (tipo === "player") {
-
-        card.addEventListener(
-            "click",
-            () => {
-
-                seleccionarCarta(
-                    index,
-                    card
-                );
-
-            }
-        );
-
-    }
+    card.appendChild(
+        ability
+    );
 
 
     return card;
+
 }
 
 
 /* =========================
-   SELECCIONAR CARTA DEL JUGADOR
+   CREAR MINI CARTA
 ========================= */
 
-function seleccionarCarta(
-    index,
-    cardElement
+function crearMiniCarta(
+    carta,
+    index
 ) {
 
-    /*
-        Solo se puede seleccionar
-        durante el turno del jugador.
-    */
+    const card =
+        document.createElement(
+            "article"
+        );
 
-    if (turno !== "jugador") {
+
+    card.classList.add(
+        "battle-card",
+        "battle-card--small"
+    );
+
+
+    /* NOMBRE */
+
+    const title =
+        document.createElement(
+            "h3"
+        );
+
+
+    title.textContent =
+        carta.nombre;
+
+
+    /* VIDA */
+
+    const health =
+        document.createElement(
+            "p"
+        );
+
+
+    health.textContent =
+        `❤️ ${carta.vida}`;
+
+
+    card.appendChild(title);
+
+    card.appendChild(health);
+
+
+    /* SELECCIONAR */
+
+    card.addEventListener(
+        "click",
+        () => {
+
+            seleccionarCarta(
+                index
+            );
+
+        }
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================
+   SELECCIONAR CARTA
+========================= */
+
+function seleccionarCarta(index) {
+
+    if (
+        turno !== "jugador"
+    ) {
 
         return;
 
     }
 
 
-    const cards =
-        document.querySelectorAll(
-            "#player-cards .battle-card"
-        );
-
-
-    cards.forEach((card) => {
-
-        card.classList.remove(
-            "battle-card--selected"
-        );
-
-    });
-
-
-    cardElement.classList.add(
-        "battle-card--selected"
-    );
-
-
     selectedPlayerCard =
         index;
 
 
+    const carta =
+        playerCards[index];
+
+
+    /* MOSTRAR CARTA GRANDE */
+
+    mostrarCartaActivaJugador(
+        carta
+    );
+
+
+    /* ACTUALIZAR MINI CARTAS */
+
+    mostrarMiniCartas();
+
+
     console.log(
-        `Seleccionaste: ${playerCards[index].nombre}`
+        `Carta seleccionada: ${carta.nombre}`
     );
 
 }
 
 
 /* =========================
-   MOSTRAR CARTAS DEL JUGADOR
+   MOSTRAR CARTA ACTIVA
 ========================= */
 
-function mostrarCartasJugador() {
+function mostrarCartaActivaJugador(
+    carta
+) {
 
-    playerCardsContainer.innerHTML = "";
+    activePlayerCardContainer.innerHTML =
+        "";
+
+
+    const card =
+        crearCartaGrande(
+            carta
+        );
+
+
+    /* CONTENEDOR DE BOTONES */
+
+    const actions =
+        document.createElement(
+            "div"
+        );
+
+
+    actions.classList.add(
+        "battle-card__actions"
+    );
+
+
+    /* BOTÓN ATACAR */
+
+    const attackButton =
+        document.createElement(
+            "button"
+        );
+
+
+    attackButton.type =
+        "button";
+
+
+    attackButton.textContent =
+        "⚔️ Atacar";
+
+
+    attackButton.addEventListener(
+        "click",
+        atacar
+    );
+
+
+    /* BOTÓN HABILIDAD */
+
+    const abilityButton =
+        document.createElement(
+            "button"
+        );
+
+
+    abilityButton.type =
+        "button";
+
+
+    abilityButton.textContent =
+        "✨ Habilidad";
+
+
+    abilityButton.addEventListener(
+        "click",
+        usarHabilidad
+    );
+
+
+    /* AGREGAR BOTONES */
+
+    actions.appendChild(
+        attackButton
+    );
+
+
+    actions.appendChild(
+        abilityButton
+    );
+
+
+    card.appendChild(
+        actions
+    );
+
+
+    activePlayerCardContainer.appendChild(
+        card
+    );
+
+}
+
+
+/* =========================
+   MOSTRAR CARTA ENEMIGA
+========================= */
+
+function mostrarCartaActivaEnemigo(
+    carta
+) {
+
+    activeEnemyCardContainer.innerHTML =
+        "";
+
+
+    if (!carta) {
+
+        return;
+
+    }
+
+
+    const card =
+        crearCartaGrande(
+            carta
+        );
+
+
+    activeEnemyCardContainer.appendChild(
+        card
+    );
+
+}
+
+
+/* =========================
+   MOSTRAR MINI CARTAS
+========================= */
+
+function mostrarMiniCartas() {
+
+    playerCardsContainer.innerHTML =
+        "";
 
 
     playerCards.forEach(
         (carta, index) => {
 
-            const cardElement =
-                crearCarta(
+            const miniCard =
+                crearMiniCarta(
                     carta,
-                    "player",
                     index
                 );
+
+
+            /* CARTA SELECCIONADA */
+
+            if (
+                index ===
+                selectedPlayerCard
+            ) {
+
+                miniCard.classList.add(
+                    "battle-card--selected"
+                );
+
+            }
 
 
             playerCardsContainer.appendChild(
-                cardElement
+                miniCard
             );
 
         }
     );
-
-}
-
-
-/* =========================
-   MOSTRAR CARTAS DEL ENEMIGO
-========================= */
-
-function mostrarCartasEnemigo() {
-
-    enemyCardsContainer.innerHTML = "";
-
-
-    enemyCards.forEach(
-        (carta, index) => {
-
-            const cardElement =
-                crearCarta(
-                    carta,
-                    "enemy",
-                    index
-                );
-
-
-            enemyCardsContainer.appendChild(
-                cardElement
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================
-   OBTENER CARTAS
-========================= */
-
-function obtenerTodasLasCartas() {
-
-    return gameData.cartas;
 
 }
 
@@ -286,10 +537,12 @@ function obtenerTodasLasCartas() {
 function crearEquipoEnemigo() {
 
     const todasLasCartas =
-        obtenerTodasLasCartas();
+        gameData.cartas;
 
 
-    while (enemyCards.length < 5) {
+    while (
+        enemyCards.length < 5
+    ) {
 
         const randomIndex =
             Math.floor(
@@ -299,26 +552,27 @@ function crearEquipoEnemigo() {
 
 
         const randomCard =
-            todasLasCartas[randomIndex];
+            todasLasCartas[
+                randomIndex
+            ];
 
-
-        /*
-            Creamos una COPIA de la carta.
-
-            Así la vida del enemigo
-            no modifica la carta del jugador.
-        */
 
         const enemyCard = {
+
             ...randomCard,
+
             vida: randomCard.vida,
+
             vidaMaxima: randomCard.vida
+
         };
+
 
         const alreadyExists =
             enemyCards.some(
                 (carta) =>
-                    carta.nombre === enemyCard.nombre
+                    carta.nombre ===
+                    enemyCard.nombre
             );
 
 
@@ -336,32 +590,26 @@ function crearEquipoEnemigo() {
 
 
 /* =========================
-   ATAQUE DEL JUGADOR
+   ATACAR
 ========================= */
 
 function atacar() {
 
-    /*
-        No puede atacar si no es
-        su turno.
-    */
-
-    if (turno !== "jugador") {
+    if (
+        turno !== "jugador"
+    ) {
 
         return;
 
     }
 
 
-    /*
-        Tiene que seleccionar
-        una carta propia.
-    */
-
-    if (selectedPlayerCard === null) {
+    if (
+        selectedPlayerCard === null
+    ) {
 
         alert(
-            "Selecciona una carta para atacar."
+            "Selecciona una carta."
         );
 
         return;
@@ -369,14 +617,22 @@ function atacar() {
     }
 
 
+    if (
+        enemyCards.length === 0
+    ) {
+
+        return;
+
+    }
+
+
     const playerCard =
-        playerCards[selectedPlayerCard];
+        playerCards[
+            selectedPlayerCard
+        ];
 
 
-    /*
-        EL SISTEMA ELIGE
-        AL ENEMIGO.
-    */
+    /* ENEMIGO ALEATORIO */
 
     const randomEnemyIndex =
         Math.floor(
@@ -386,15 +642,35 @@ function atacar() {
 
 
     const enemyCard =
-        enemyCards[randomEnemyIndex];
+        enemyCards[
+            randomEnemyIndex
+        ];
 
 
-    /*
-        Aplicamos daño.
-    */
+    activeEnemyCard =
+        enemyCard;
+
+
+    /* MOSTRAR ENEMIGO */
+
+    mostrarCartaActivaEnemigo(
+        enemyCard
+    );
+
+
+    /* DAÑO */
 
     enemyCard.vida -=
         playerCard.ataque;
+
+
+    if (
+        enemyCard.vida < 0
+    ) {
+
+        enemyCard.vida = 0;
+
+    }
 
 
     console.log(
@@ -402,61 +678,50 @@ function atacar() {
     );
 
 
-    console.log(
-        `Vida de ${enemyCard.nombre}: ${enemyCard.vida}`
+    /* ACTUALIZAR CARTA */
+
+    mostrarCartaActivaEnemigo(
+        enemyCard
     );
 
 
-    /*
-        Si la carta muere,
-        desaparece.
-    */
+    /* ENEMIGO MUERTO */
 
-    if (enemyCard.vida <= 0) {
-
-        console.log(
-            `${enemyCard.nombre} fue derrotado`
-        );
-
+    if (
+        enemyCard.vida === 0
+    ) {
 
         enemyCards.splice(
             randomEnemyIndex,
             1
         );
 
+
+        activeEnemyCard =
+            null;
+
+
+        activeEnemyCardContainer.innerHTML =
+            "";
+
     }
 
 
-    /*
-        Quitamos la selección.
-    */
+    /* COMPROBAR GANADOR */
 
-    selectedPlayerCard = null;
-
-
-    mostrarCartasEnemigo();
-
-
-    /*
-        Comprobamos si ganó.
-    */
-
-    if (verificarGanador()) {
+    if (
+        verificarGanador()
+    ) {
 
         return;
 
     }
 
 
-    /*
-        Ahora le toca
-        al enemigo.
-    */
+    /* CAMBIAR TURNO */
 
-    turno = "enemigo";
-
-
-    attackButton.disabled = true;
+    turno =
+        "enemigo";
 
 
     setTimeout(
@@ -473,10 +738,25 @@ function atacar() {
 
 function turnoEnemigo() {
 
-    /*
-        El enemigo elige
-        una carta aleatoria.
-    */
+    if (
+        playerCards.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        enemyCards.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    /* ENEMIGO ALEATORIO */
 
     const randomEnemyIndex =
         Math.floor(
@@ -486,13 +766,12 @@ function turnoEnemigo() {
 
 
     const enemyCard =
-        enemyCards[randomEnemyIndex];
+        enemyCards[
+            randomEnemyIndex
+        ];
 
 
-    /*
-        El enemigo elige
-        una de nuestras cartas.
-    */
+    /* JUGADOR ALEATORIO */
 
     const randomPlayerIndex =
         Math.floor(
@@ -502,15 +781,31 @@ function turnoEnemigo() {
 
 
     const playerCard =
-        playerCards[randomPlayerIndex];
+        playerCards[
+            randomPlayerIndex
+        ];
 
 
-    /*
-        El enemigo ataca.
-    */
+    /* MOSTRAR ENEMIGO */
+
+    mostrarCartaActivaEnemigo(
+        enemyCard
+    );
+
+
+    /* ATAQUE */
 
     playerCard.vida -=
         enemyCard.ataque;
+
+
+    if (
+        playerCard.vida < 0
+    ) {
+
+        playerCard.vida = 0;
+
+    }
 
 
     console.log(
@@ -518,72 +813,137 @@ function turnoEnemigo() {
     );
 
 
-    console.log(
-        `Vida de ${playerCard.nombre}: ${playerCard.vida}`
-    );
+    /* CARTA MUERTA */
 
-
-    /*
-        Si nuestra carta
-        llega a 0, desaparece.
-    */
-
-    if (playerCard.vida <= 0) {
-
-        console.log(
-            `${playerCard.nombre} fue derrotado`
-        );
-
+    if (
+        playerCard.vida === 0
+    ) {
 
         playerCards.splice(
             randomPlayerIndex,
             1
         );
 
+
+        /*
+            Si murió la carta
+            seleccionada, quitamos
+            la selección.
+        */
+
+        if (
+            selectedPlayerCard ===
+            randomPlayerIndex
+        ) {
+
+            selectedPlayerCard =
+                null;
+
+            activePlayerCardContainer.innerHTML =
+                "";
+
+        }
+
     }
 
 
-    mostrarCartasJugador();
+    /* ACTUALIZAR MINI CARTAS */
+
+    mostrarMiniCartas();
 
 
-    /*
-        Comprobamos si perdimos.
-    */
+    /* COMPROBAR GANADOR */
 
-    if (verificarGanador()) {
+    if (
+        verificarGanador()
+    ) {
 
         return;
 
     }
 
 
+    turno =
+        "jugador";
+
+
     /*
-        Regresa el turno
-        al jugador.
+        Si ya no hay carta
+        seleccionada, elegimos
+        automáticamente la primera.
     */
 
-    turno = "jugador";
+    if (
+        selectedPlayerCard === null
+    ) {
 
+        seleccionarCarta(0);
 
-    attackButton.disabled = false;
+    }
 
 }
 
 
 /* =========================
-   COMPROBAR GANADOR
+   HABILIDAD
+========================= */
+
+function usarHabilidad() {
+
+    if (
+        turno !== "jugador"
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        selectedPlayerCard === null
+    ) {
+
+        return;
+
+    }
+
+
+    const carta =
+        playerCards[
+            selectedPlayerCard
+        ];
+
+
+    console.log(
+        `Habilidad de ${carta.nombre}:`
+    );
+
+
+    console.log(
+        carta.habilidad
+    );
+
+
+    alert(
+        `✨ ${carta.nombre}\n\n${carta.habilidad}`
+    );
+
+}
+
+
+/* =========================
+   GANADOR
 ========================= */
 
 function verificarGanador() {
 
-    if (enemyCards.length === 0) {
+    if (
+        enemyCards.length === 0
+    ) {
 
         alert(
             "¡Ganaste la batalla! 🎉"
         );
-
-
-        attackButton.disabled = true;
 
 
         return true;
@@ -591,14 +951,13 @@ function verificarGanador() {
     }
 
 
-    if (playerCards.length === 0) {
+    if (
+        playerCards.length === 0
+    ) {
 
         alert(
             "Perdiste la batalla 😭"
         );
-
-
-        attackButton.disabled = true;
 
 
         return true;
@@ -620,25 +979,27 @@ function iniciarBatalla() {
     crearEquipoEnemigo();
 
 
-    mostrarCartasJugador();
+    mostrarMiniCartas();
 
 
-    mostrarCartasEnemigo();
+    /*
+        Seleccionamos la primera
+        carta automáticamente.
+    */
+
+    seleccionarCarta(0);
 
 
-    attackButton.disabled = false;
+    /*
+        Mostramos una carta
+        enemiga inicialmente.
+    */
+
+    mostrarCartaActivaEnemigo(
+        enemyCards[0]
+    );
 
 }
-
-
-/* =========================
-   BOTÓN ATACAR
-========================= */
-
-attackButton.addEventListener(
-    "click",
-    atacar
-);
 
 
 /* =========================
