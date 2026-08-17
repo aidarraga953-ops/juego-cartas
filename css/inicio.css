@@ -49,6 +49,25 @@
     line-height: 1.5;
 }
 
+.navbar__player {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.navbar__player-avatar {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid #d99b28;
+}
 
 /* =========================
    ¿CÓMO SE JUEGA?

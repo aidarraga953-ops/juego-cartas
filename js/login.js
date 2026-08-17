@@ -92,6 +92,6 @@ loginForm.addEventListener("submit", (event) => {
     ===================================== */
 
     window.location.href =
-        "./inicio.html";
+        "./pages/inicio.html";
 
 });
