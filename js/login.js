@@ -1,43 +1,97 @@
-const formulario = document.getElementById("login-form");
+const loginForm = document.getElementById("login-form");
 
 const nombreInput = document.getElementById("nombre");
 
-const avatares = document.querySelectorAll(".avatar");
+const avatarButtons =
+    document.querySelectorAll(".avatar");
 
 let avatarSeleccionado = null;
 
 
-avatares.forEach((avatar) => {
+/* =========================================
+   SELECCIONAR AVATAR
+========================================= */
+
+avatarButtons.forEach((avatar) => {
 
     avatar.addEventListener("click", () => {
 
-        avatares.forEach((item) => {
-            item.classList.remove("avatar--selected");
+        // Quitar selección anterior
+        avatarButtons.forEach((item) => {
+
+            item.classList.remove("selected");
+
         });
 
-        avatar.classList.add("avatar--selected");
 
-        avatarSeleccionado = avatar.dataset.avatar;
+        // Seleccionar nuevo avatar
+        avatar.classList.add("selected");
 
-        console.log("Avatar seleccionado:", avatarSeleccionado);
+
+        // Guardar el avatar seleccionado
+        avatarSeleccionado =
+            avatar.dataset.avatar;
 
     });
 
 });
 
 
-formulario.addEventListener("submit", (event) => {
+/* =========================================
+   LOGIN
+========================================= */
+
+loginForm.addEventListener("submit", (event) => {
 
     event.preventDefault();
 
-    const nombre = nombreInput.value.trim();
 
-    if (!avatarSeleccionado) {
-        alert("Selecciona un avatar");
+    const nombre =
+        nombreInput.value.trim();
+
+
+    if (nombre === "") {
+
+        alert("Escribe tu nombre.");
+
         return;
+
     }
 
-    console.log("Jugador:", nombre);
-    console.log("Avatar:", avatarSeleccionado);
+
+    if (!avatarSeleccionado) {
+
+        alert("Selecciona un avatar.");
+
+        return;
+
+    }
+
+
+    /* =====================================
+       GUARDAR INFORMACIÓN DEL JUGADOR
+    ===================================== */
+
+    const jugador = {
+
+        nombre: nombre,
+
+        avatar: avatarSeleccionado
+
+    };
+
+
+    localStorage.setItem(
+        "cardWarsJugador",
+        JSON.stringify(jugador)
+    );
+
+
+    /* =====================================
+       IR AL INICIO
+    ===================================== */
+
+    window.location.href =
+        "./inicio.html";
 
 });
