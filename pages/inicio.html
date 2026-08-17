@@ -2,20 +2,41 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Card Wars | Inicio</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/inicio.css">
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/inicio.css"
+    >
+
 </head>
+
 
 <body>
 
+    <!-- ==============================
+         NAVBAR
+    =============================== -->
+
     <nav class="navbar">
 
-        <a href="./inicio.html" class="navbar__logo">
+        <a
+            href="./inicio.html"
+            class="navbar__logo"
+        >
             CARD WARS
         </a>
 
@@ -54,13 +75,6 @@
 
         <div class="navbar__player">
 
-            <img
-                id="player-avatar"
-                class="navbar__player-avatar"
-                src=""
-                alt="Avatar del jugador"
-            >
-
             <span class="navbar__player-name">
                 Jugador
             </span>
@@ -69,14 +83,24 @@
 
     </nav>
 
+
+    <!-- ==============================
+         INICIO
+    =============================== -->
+
     <main class="inicio">
 
-        <section class="inicio__container">
 
-            <header class="inicio__header">
+        <!-- ==========================
+             HEADER
+        =========================== -->
+
+        <section class="inicio__hero">
+
+            <div class="inicio__hero-content">
 
                 <p class="inicio__welcome">
-                    Bienvenido a
+                    Bienvenido a Ooo
                 </p>
 
                 <h1>
@@ -84,95 +108,461 @@
                 </h1>
 
                 <p class="inicio__description">
-                    Prepárate para construir tu equipo,
-                    elegir tu reino y entrar en batalla.
+                    Forma tu equipo, elige tu territorio
+                    y prepárate para luchar.
                 </p>
 
-            </header>
+                <button
+                    type="button"
+                    id="start-game"
+                    class="inicio__button"
+                >
+                    Comenzar partida
+                </button>
+
+            </div>
+
+        </section>
 
 
-            <section class="inicio__how-to-play">
+        <!-- ==========================
+             INTRODUCCIÓN
+        =========================== -->
+
+        <section class="inicio__intro">
+
+            <div class="inicio__section-content">
+
+                <span class="inicio__eyebrow">
+                    LA TIERRA DE OOO
+                </span>
+
+                <h2>
+                    Elige tu destino
+                </h2>
+
+                <p>
+                    Ooo está dividido en territorios muy
+                    diferentes. Cada uno tiene sus propios
+                    habitantes, cartas y estrategias.
+                </p>
+
+                <p>
+                    Explora los cinco mapas y descubre
+                    qué cartas pueden llevarte hasta
+                    la victoria.
+                </p>
+                <div class="inicio__maps"> 
+                    <!-- REINO DULCE --> 
+                    <article class="map-card map-card--candy"> 
+                        <span class="map-card__number"> 01 </span> 
+                        <div class="map-card__image"> 
+                        <img src="../assets/dulce reino.webp" alt="Reino Dulce" > 
+                        </div> 
+                        <h3> Reino Dulce </h3> 
+                        <span class="map-card__tag"> azúcar y orden </span> 
+                    </article>
+                    <!-- REINO HELADO --> 
+                    <article class="map-card map-card--ice"> 
+                        <span class="map-card__number"> 02 </span> 
+                        <div class="map-card__image"> 
+                        <img src="../assets/reino helado.webp" alt="Reino Helado" > </div> 
+                        <h3> Reino Helado </h3> 
+                        <span class="map-card__tag"> cumbres solitarias </span> 
+                    </article> 
+                    <!-- NIGHTOSFERA --> 
+                    <article class="map-card map-card--night"> 
+                        <span class="map-card__number"> 03 </span> 
+                        <div class="map-card__image"> 
+                        <img src="../assets/nocheosfera.webp" alt="Nocheosfera" > </div> 
+                        <h3> Nocheosfera </h3> 
+                        <span class="map-card__tag"> sombras profundas </span> 
+                    </article>
+                    <!-- TIERRAS SALVAJES --> 
+                    <article class="map-card map-card--wild"> 
+                        <span class="map-card__number"> 04 </span> 
+                        <div class="map-card__image"> 
+                        <img src="../assets/casa del arbol.webp" alt="Tierras Salvajes" > </div> 
+                        <h3> Tierras Salvajes </h3> 
+                        <span class="map-card__tag"> naturaleza salvaje </span> 
+                    </article> 
+                    <!-- REINO CÓSMICO --> 
+                    <article class="map-card map-card--cosmic"> 
+                        <span class="map-card__number"> 05 </span> 
+                        <div class="map-card__image"> 
+                        <img src="../assets/reino cosmico.webp" alt="Reino Cósmico" > </div> 
+                        <h3> Reino Cósmico </h3> 
+                        <span class="map-card__tag"> más allá de Ooo </span> 
+                    </article> 
+                        
+                </div> 
+                <p class="inicio__maps-hint"> Pasa el cursor sobre un mapa para explorarlo </p>
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             REINO DULCE
+        =========================== -->
+
+        <section class="world-section world-section--candy">
+
+            <div class="world-section__background"></div>
+
+            <div class="world-section__content">
+
+                <span class="world-section__icon">
+                    🍬
+                </span>
+
+                <span class="world-section__eyebrow">
+                    REINO 01
+                </span>
+
+                <h2>
+                    Reino Dulce
+                </h2>
+
+                <p class="world-section__description">
+                    El corazón del Dulce Reino, gobernado
+                    con mano firme por la Princesa Chicle.
+                </p>
+
+                <p>
+                    Un lugar brillante, colorido y muy
+                    ordenado, donde la ciencia y el azúcar
+                    se mezclan.
+                </p>
+
+
+                <div class="world-section__cards">
+
+                    <span>Princesa Chicle</span>
+                    <span>Mentita</span>
+                    <span>Árbol de las Manzanas</span>
+                    <span>Lemongrab</span>
+                    <span>NEPTR</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             REINO HELADO
+        =========================== -->
+
+        <section class="world-section world-section--ice">
+
+            <div class="world-section__background"></div>
+
+            <div class="world-section__content">
+
+                <span class="world-section__icon">
+                    ❄️
+                </span>
+
+                <span class="world-section__eyebrow">
+                    REINO 02
+                </span>
+
+                <h2>
+                    Reino Helado
+                </h2>
+
+                <p class="world-section__description">
+                    Tierras heladas y solitarias en la cima
+                    de las montañas.
+                </p>
+
+                <p>
+                    Un territorio dominado por la magia
+                    caótica y la soledad del Rey Helado.
+                </p>
+
+
+                <div class="world-section__cards">
+
+                    <span>Rey Helado</span>
+                    <span>Simon Petrikov</span>
+                    <span>Gunter</span>
+                    <span>Multicolor</span>
+                    <span>Búho Cósmico</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             NIGHTOSFERA
+        =========================== -->
+
+        <section class="world-section world-section--nightosphere">
+
+            <div class="world-section__background"></div>
+
+            <div class="world-section__content">
+
+                <span class="world-section__icon">
+                    👹
+                </span>
+
+                <span class="world-section__eyebrow">
+                    REINO 03
+                </span>
+
+                <h2>
+                    Nightosfera
+                </h2>
+
+                <p class="world-section__description">
+                    El inframundo oscuro, hogar de demonios,
+                    vampiros y criaturas del caos.
+                </p>
+
+                <p>
+                    Un territorio gobernado por
+                    Hunson Abadeer.
+                </p>
+
+
+                <div class="world-section__cards">
+
+                    <span>Marceline</span>
+                    <span>Hunson Abadeer</span>
+                    <span>Flama</span>
+                    <span>Prismo</span>
+                    <span>Bruja Cazadora</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             TIERRAS SALVAJES
+        =========================== -->
+
+        <section class="world-section world-section--wild">
+
+            <div class="world-section__background"></div>
+
+            <div class="world-section__content">
+
+                <span class="world-section__icon">
+                    🌳
+                </span>
+
+                <span class="world-section__eyebrow">
+                    REINO 04
+                </span>
+
+                <h2>
+                    Tierras Salvajes
+                </h2>
+
+                <p class="world-section__description">
+                    Bosques, llanuras y cuevas fuera
+                    de cualquier reino.
+                </p>
+
+                <p>
+                    Aquí los aventureros y las criaturas
+                    mágicas conviven libremente.
+                </p>
+
+
+                <div class="world-section__cards">
+
+                    <span>Finn</span>
+                    <span>Jake</span>
+                    <span>Fionna</span>
+                    <span>Cake</span>
+                    <span>Tronco Gordo</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             REINO CÓSMICO
+        =========================== -->
+
+        <section class="world-section world-section--cosmic">
+
+            <div class="world-section__background"></div>
+
+            <div class="world-section__content">
+
+                <span class="world-section__icon">
+                    🌌
+                </span>
+
+                <span class="world-section__eyebrow">
+                    REINO 05
+                </span>
+
+                <h2>
+                    Reino Cósmico
+                </h2>
+
+                <p class="world-section__description">
+                    Un plano fuera del tiempo y el espacio.
+                </p>
+
+                <p>
+                    Un lugar habitado por seres todopoderosos,
+                    héroes legendarios y magos errantes.
+                </p>
+
+
+                <div class="world-section__cards">
+
+                    <span>Ceniza</span>
+                    <span>LSP</span>
+                    <span>Billy</span>
+                    <span>Beemo</span>
+                    <span>Betty Grof</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             CÓMO SE JUEGA
+        =========================== -->
+
+        <section class="inicio__how-to-play">
+
+            <div class="inicio__section-content">
+
+                <span class="inicio__eyebrow">
+                    CARD WARS
+                </span>
 
                 <h2>
                     ¿Cómo se juega?
                 </h2>
 
-                <div class="rules">
+                <p>
+                    Cada carta tiene sus propias estadísticas
+                    y una habilidad especial que puede cambiar
+                    el rumbo de una batalla.
+                </p>
 
-                    <article class="rule">
-                        <span class="rule__icon">🃏</span>
+
+                <div class="game-stats">
+
+                    <article class="game-stat">
+
+                        <span>
+                            ❤️
+                        </span>
 
                         <h3>
-                            Elige tus cartas
+                            Vida
                         </h3>
 
                         <p>
-                            Selecciona cinco cartas para
-                            formar tu equipo.
+                            Determina cuánto daño puede
+                            soportar una carta.
                         </p>
+
                     </article>
 
 
-                    <article class="rule">
-                        <span class="rule__icon">🗺️</span>
+                    <article class="game-stat">
+
+                        <span>
+                            ⚔️
+                        </span>
 
                         <h3>
-                            Elige tu reino
+                            Ataque
                         </h3>
 
                         <p>
-                            Escoge el mapa donde
-                            tendrá lugar la batalla.
+                            Determina cuánto daño puede
+                            causar durante la batalla.
                         </p>
+
                     </article>
 
 
-                    <article class="rule">
-                        <span class="rule__icon">⚔️</span>
+                    <article class="game-stat">
+
+                        <span>
+                            ✨
+                        </span>
 
                         <h3>
-                            Entra en batalla
-                        </h3>
-
-                        <p>
-                            Utiliza tus cartas y sus
-                            habilidades para derrotar a tu rival.
-                        </p>
-                    </article>
-
-
-                    <article class="rule">
-                        <span class="rule__icon">✨</span>
-
-                        <h3>
-                            Usa tus habilidades
+                            Habilidad
                         </h3>
 
                         <p>
                             Cada carta posee una habilidad
-                            especial que puede cambiar la batalla.
+                            capaz de cambiar la partida.
                         </p>
+
                     </article>
 
                 </div>
 
-            </section>
-
-
-            <button
-                type="button"
-                id="start-game"
-                class="inicio__button"
-            >
-                Comenzar partida
-            </button>
+            </div>
 
         </section>
+
+
+        <!-- ==========================
+             CIERRE
+        =========================== -->
+
+        <section class="inicio__ending">
+
+            <div>
+
+                <p>
+                    TU AVENTURA COMIENZA AQUÍ
+                </p>
+
+                <h2>
+                    ¿Estás listo?
+                </h2>
+
+                <button
+                    type="button"
+                    class="inicio__button"
+                    id="start-game-bottom"
+                >
+                    Comenzar partida
+                </button>
+
+            </div>
+
+        </section>
+
 
     </main>
 
 
-    <script type="module" src="../js/inicio.js"></script>
+    <script
+        type="module"
+        src="../js/inicio.js"
+    ></script>
 
 </body>
 

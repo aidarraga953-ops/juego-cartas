@@ -1,200 +1,1032 @@
-/* =========================
-   CONTENEDOR DE INICIO
-========================= */
+/* =========================================
+   INICIO
+========================================= */
 
 .inicio {
-    min-height: calc(100vh - 70px);
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.inicio__hero {
+    min-height: 90vh;
 
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    padding: 2rem;
-}
-
-.inicio__container {
-    width: min(100%, 900px);
+    justify-content: center;
 
     text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(40, 10, 15, 0.15),
+            rgba(40, 10, 15, 0.30)
+        ),
+        url("../assets/titulo.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff3d6;
+
+    position: relative;
 }
 
 
-/* =========================
-   HEADER
-========================= */
-
-.inicio__header {
-    margin-bottom: 3rem;
+.inicio__hero-content {
+    max-width: 800px;
+    padding: 60px 30px;
 }
+
 
 .inicio__welcome {
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
 
-    color: var(--color-text-secondary);
+    color: #e8c982;
 }
 
-.inicio__header h1 {
-    margin-bottom: 1rem;
 
-    color: var(--color-primary);
-    font-size: 3rem;
+.inicio__hero h1 {
+    margin: 0;
+
+    font-size: clamp(4rem, 10vw, 8rem);
+
+    font-family: Georgia, serif;
+
+    color: #9e3d35;
+
+    text-shadow:
+        3px 3px 0 #3d171b,
+        0 0 25px rgba(0, 0, 0, 0.3);
 }
+
 
 .inicio__description {
     max-width: 600px;
 
-    margin: 0 auto;
+    margin: 25px auto 35px;
 
-    color: var(--color-text-secondary);
-    line-height: 1.5;
-}
-
-.navbar__player {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
+    font-size: 1.2rem;
+    line-height: 1.7;
 }
 
 
-.navbar__player-avatar {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-
-    border: 2px solid #d99b28;
-}
-
-/* =========================
-   ¿CÓMO SE JUEGA?
-========================= */
-
-.inicio__how-to-play h2 {
-    margin-bottom: 2rem;
-
-    font-size: 2rem;
-}
-
-
-/* =========================
-   TARJETAS DE INFORMACIÓN
-========================= */
-
-.rules {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 1.5rem;
-}
-
-.rule {
-    padding: 1.5rem;
-
-    background-color: var(--color-surface);
-
-    border-radius: var(--radius-medium);
-
-    box-shadow: var(--shadow-card);
-
-    transition: var(--transition-normal);
-}
-
-.rule:hover {
-    transform: translateY(-5px);
-}
-
-.rule__icon {
-    display: block;
-
-    margin-bottom: 1rem;
-
-    font-size: 2rem;
-}
-
-.rule h3 {
-    margin-bottom: 0.7rem;
-}
-
-.rule p {
-    color: var(--color-text-secondary);
-
-    line-height: 1.5;
-}
-
-
-/* =========================
+/* =========================================
    BOTÓN
-========================= */
+========================================= */
 
 .inicio__button {
-    margin-top: 2.5rem;
+    padding: 16px 45px;
 
-    padding: 1rem 2.5rem;
+    border: 3px solid #70451e;
+    border-radius: 14px;
 
-    border: none;
-    border-radius: var(--radius-medium);
+    background:
+        linear-gradient(
+            #e8bd66,
+            #bd7c31
+        );
 
-    background-color: var(--color-primary);
+    color: #fff8df;
 
-    color: var(--color-text);
+    font-family: Georgia, serif;
 
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: var(--transition-normal);
+    box-shadow:
+        0 5px 0 #70451e,
+        0 10px 20px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
 
 .inicio__button:hover {
-    transform: scale(1.05);
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 0 #70451e,
+        0 15px 25px rgba(0, 0, 0, 0.3);
 }
 
 
-/* =========================
+.inicio__button:active {
+    transform: translateY(2px);
+
+    box-shadow:
+        0 3px 0 #70451e;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.inicio__intro {
+    min-height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            rgba(40, 10, 15, 0.15),
+            rgba(40, 10, 15, 0.30)
+        ),
+        url("../assets/elije\ tu\ camino.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff3d6;
+
+    color: #e8c463;
+}
+
+
+.inicio__section-content {
+    width: min(1000px, 90%);
+    margin: auto;
+}
+
+
+.inicio__eyebrow {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 4px;
+
+    font-weight: bold;
+}
+
+
+.inicio__section-content h2 {
+    margin: 0 0 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+
+.inicio__section-content p {
+    max-width: 750px;
+
+    margin: 15px auto;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+}
+
+/* =========================================
+   MAPAS — ELIGE TU DESTINO
+========================================= */
+
+.inicio__maps {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    position: relative;
+
+    height: 300px;
+
+    margin-top: 50px;
+}
+
+
+/* =========================================
+   TARJETA
+========================================= */
+
+.map-card {
+    width: 200px;
+
+    height: 290px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 14px;
+
+    margin-left: -30px;
+
+    overflow: hidden;
+
+    border: 3px solid #7a3b2e;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 12px 24px rgba(0, 0, 0, 0.4);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.map-card:first-child {
+    margin-left: 0;
+}
+
+
+/* =========================================
+   COLORES
+========================================= */
+
+.map-card--candy {
+    transform:
+        rotate(-12deg)
+        translateY(10px);
+
+    background:
+        linear-gradient(
+            160deg,
+            #ffd9e6,
+            #f5a8c0
+        );
+}
+
+
+.map-card--ice {
+    transform:
+        rotate(-6deg)
+        translateY(-4px);
+
+    background:
+        linear-gradient(
+            160deg,
+            #cdeaf7,
+            #9ccbe0
+        );
+}
+
+
+.map-card--night {
+    transform:
+        rotate(0deg)
+        translateY(-12px);
+
+    background:
+        linear-gradient(
+            160deg,
+            #d65855,
+            #821605
+        );
+
+    z-index: 5;
+}
+
+
+.map-card--wild {
+    transform:
+        rotate(6deg)
+        translateY(-4px);
+
+    background:
+        linear-gradient(
+            160deg,
+            #d4ecc8,
+            #a4d18f
+        );
+}
+
+
+.map-card--cosmic {
+    transform:
+        rotate(12deg)
+        translateY(10px);
+
+    background:
+        linear-gradient(
+            160deg,
+            #d7d0f0,
+            #a89bdd
+        );
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.map-card:hover {
+    z-index: 10;
+}
+
+
+.map-card:hover.map-card--candy {
+    transform:
+        rotate(-12deg)
+        translateY(-15px)
+        scale(1.05);
+}
+
+
+.map-card:hover.map-card--ice {
+    transform:
+        rotate(-6deg)
+        translateY(-25px)
+        scale(1.05);
+}
+
+
+.map-card:hover.map-card--night {
+    transform:
+        rotate(0deg)
+        translateY(-30px)
+        scale(1.05);
+}
+
+
+.map-card:hover.map-card--wild {
+    transform:
+        rotate(6deg)
+        translateY(-25px)
+        scale(1.05);
+}
+
+
+.map-card:hover.map-card--cosmic {
+    transform:
+        rotate(12deg)
+        translateY(-15px)
+        scale(1.05);
+}
+
+
+/* =========================================
+   NÚMERO
+========================================= */
+
+.map-card__number {
+    position: absolute;
+
+    top: 8px;
+    left: 10px;
+
+    font-weight: bold;
+
+    font-size: 0.75rem;
+
+    color: #4c2c13;
+}
+
+
+/* =========================================
+   IMAGEN
+========================================= */
+
+.map-card__image {
+    width: 120px;
+    height: 120px;
+
+    margin-top: 10px;
+
+    overflow: hidden;
+
+    border: 2px solid #7a3b2e;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.4);
+}
+
+
+.map-card__image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================
+   NOMBRE
+========================================= */
+
+.map-card h3 {
+    margin: 12px 10px 0;
+
+    font-size: 0.85rem;
+
+    text-align: center;
+
+    color: #4c2c13;
+}
+
+
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
+
+.map-card__tag {
+    margin-top: 4px;
+
+    font-size: 0.65rem;
+
+    font-style: italic;
+
+    color: #6b4423;
+}
+
+
+/* =========================================
+   TEXTO INFERIOR
+========================================= */
+
+.inicio__maps-hint {
+    margin-top: 30px;
+
+    text-align: center;
+
+    font-size: 0.85rem;
+
+    font-style: italic;
+
+    color: #6b4423;
+}
+
+
+/* =========================================
    RESPONSIVE
-========================= */
+========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
 
-    .inicio {
-        padding: 1.5rem;
+    .inicio__maps {
+        flex-wrap: wrap;
+
+        height: auto;
+
+        gap: 16px;
     }
 
-    .inicio__header h1 {
-        font-size: 2.5rem;
+
+    .map-card {
+        margin-left: 0;
+
+        transform: none !important;
     }
 
-    .rules {
+
+    .map-card:hover {
+        transform:
+            translateY(-10px)
+            scale(1.03) !important;
+    }
+
+}
+
+/* =========================================
+   SECCIONES DE LOS REINOS
+========================================= */
+
+.world-section {
+    min-height: 75vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    color: white;
+
+    padding: 50px 0;
+}
+
+
+/* =========================================
+   FONDO DEL REINO
+========================================= */
+
+.world-section__background {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    transform: scale(1.03);
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.world-section__content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(850px, 90%);
+
+    margin-left: 8%;
+
+    padding: 55px 60px;
+
+    border: 3px solid;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 30px rgba(35, 15, 10, 0.35);
+}
+
+.world-section__content::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border: 1px solid rgba(92, 57, 30, 0.35);
+
+    border-radius: 12px;
+
+    pointer-events: none;
+}
+
+
+
+
+
+
+/* =========================================
+   ICONO
+========================================= */
+
+.world-section__icon {
+    display: block;
+
+    font-size: 4rem;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   ETIQUETA
+========================================= */
+
+.world-section__eyebrow {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 4px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   TITULO
+========================================= */
+
+.world-section h2 {
+    margin: 0 0 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(3rem, 7vw, 6rem);
+}
+
+
+/* =========================================
+   TEXTO
+========================================= */
+
+.world-section p {
+    max-width: 650px;
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+}
+
+
+.world-section__description {
+    font-size: 1.35rem !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   REINO DULCE
+========================================= */
+
+.world-section--candy {
+    background: #e8a5b8;
+}
+
+
+.world-section--candy
+.world-section__background {
+    background-image:
+        url("../assets/dulce reino.webp");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.world-section--candy .world-section__content {
+    background: rgba(232, 165, 184, 0.88);
+    border-color: rgba(120, 55, 75, 0.65);
+    color: #4b2632;
+}
+/* =========================================
+   CAPA DE COLOR
+========================================= */
+
+.world-section::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(112, 35, 65, 0.58),
+            rgba(112, 35, 65, 0.20) 55%,
+            rgba(112, 35, 65, 0.05)
+        );
+}
+
+/* =========================================
+   REINO HIELO
+========================================= */
+
+.world-section--ice {
+    background: #3988c2;
+}
+
+
+.world-section--ice
+.world-section__background {
+    background-image:
+        url("../assets/reino\ helado.webp");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.world-section--ice .world-section__content {
+    background: rgba(120, 180, 210, 0.88);
+    border-color: rgba(40, 85, 110, 0.65);
+}
+
+/* =========================================
+   REINO COSMICO
+========================================= */
+
+.world-section--cosmic {
+    background: #25144c;
+}
+
+
+.world-section--cosmic
+.world-section__background {
+    background-image:
+        url("../assets/reino\ cosmico.webp");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.world-section--cosmic .world-section__content {
+    background: rgba(80, 65, 125, 0.88);
+    border-color: rgba(150, 135, 200, 0.65);
+    color: #eeeaff;
+}
+
+/* =========================================
+   REINO NOCHEOSFERA
+========================================= */
+
+.world-section--nightosphere {
+    background: #24113d;
+}
+
+
+.world-section--nightosphere
+.world-section__background {
+    background-image:
+        url("../assets/nocheosfera.webp");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.world-section--nightosphere .world-section__content {
+    background: rgba(70, 35, 70, 0.90);
+    border-color: rgba(150, 80, 110, 0.65);
+    color: #f4dfe7;
+}
+
+/* =========================================
+   TIERRAS SALVAJES
+========================================= */
+
+.world-section--wild {
+    background: #a7c95c;
+}
+
+
+.world-section--wild
+.world-section__background {
+    background-image:
+        url("../assets/casa\ del\ arbol.webp");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.world-section--wild .world-section__content {
+    background: rgba(149, 213, 85, 0.88);
+    border-color: rgba(55, 85, 40, 0.65);
+}
+
+
+/* =========================================
+   COLORES DE LOS REINOS
+========================================= */
+
+.world-section--candy {
+    background:
+        linear-gradient(
+            120deg,
+            #e58bad,
+            #f5c1cf
+        );
+}
+
+
+.world-section--ice {
+    background:
+        linear-gradient(
+            120deg,
+            #3988c2,
+            #b9e8f4
+        );
+}
+
+
+.world-section--nightosphere {
+    background:
+        linear-gradient(
+            120deg,
+            #24113d,
+            #591b38
+        );
+}
+
+
+.world-section--wild {
+    background:
+        linear-gradient(
+            120deg,
+            #47783b,
+            #a7c95c
+        );
+}
+
+
+.world-section--cosmic {
+    background:
+        linear-gradient(
+            120deg,
+            #25144c,
+            #6547a3
+        );
+}
+
+
+/* =========================================
+   CARTAS DESTACADAS
+========================================= */
+
+.world-section__cards {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+
+.world-section__cards span {
+    padding: 10px 18px;
+
+    border: 2px solid rgba(255, 255, 255, 0.5);
+
+    border-radius: 30px;
+
+    background: rgba(0, 0, 0, 0.18);
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   CÓMO SE JUEGA
+========================================= */
+
+.inicio__how-to-play {
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(40, 10, 15, 0.15),
+            rgba(40, 10, 15, 0.30)
+        ),
+        url("../assets/limones.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #6d3404;
+}
+
+
+.game-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1000px;
+
+    margin: 50px auto 0;
+}
+
+
+.game-stat {
+    padding: 35px 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 170, 23, 0.7);
+
+    border: 2px solid #93602c;
+
+    box-shadow:
+        0 8px 20px rgba(75, 40, 15, 0.2);
+}
+
+
+.game-stat span {
+    font-size: 3rem;
+}
+
+
+.game-stat h3 {
+    font-family: Georgia, serif;
+
+    font-size: 1.5rem;
+}
+
+
+.game-stat p {
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.inicio__ending {
+    min-height: 60vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            rgba(40, 10, 15, 0.15),
+            rgba(40, 10, 15, 0.30)
+        ),
+        url("../assets/final.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+    color: #040404;
+}
+
+.inicio__ending p {
+    letter-spacing: 5px;
+
+    font-weight: bold;
+}
+
+
+.inicio__ending h2 {
+    margin: 15px 0 35px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(3rem, 7vw, 6rem);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .game-stats {
         grid-template-columns: 1fr;
     }
-}
 
 
-@media (max-width: 480px) {
-
-    .inicio {
-        padding: 1rem;
+    .world-section {
+        min-height: auto;
     }
 
-    .inicio__header h1 {
-        font-size: 2rem;
+
+    .world-section__content {
+        padding: 80px 0;
     }
 
-    .inicio__how-to-play h2 {
-        font-size: 1.5rem;
+
+    .world-section h2 {
+        font-size: 3rem;
     }
 
-    .rule {
-        padding: 1.2rem;
+
+    .world-section__cards {
+        flex-direction: column;
     }
 
-    .inicio__button {
-        width: 100%;
+
+    .world-section__cards span {
+        width: fit-content;
     }
+
 }
