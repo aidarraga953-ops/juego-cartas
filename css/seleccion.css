@@ -1,167 +1,683 @@
+/* =========================================
+   SELECCIÓN - CARD WARS
+   ESTILO OOO / AVENTURA
+========================================= */
+
 .selection {
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 0;
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 55px 5% 80px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4dfaa 0%,
+            #e8c987 45%,
+            #d9b873 100%
+        );
+
+    color: #4b321f;
 }
+
+
+/* =========================================
+   HEADER
+========================================= */
 
 .selection__header {
     text-align: center;
-    margin-bottom: 40px;
+
+    margin-bottom: 55px;
 }
 
 .selection__header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin: 0 0 12px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+
+    color: #70452e;
+
+    text-shadow:
+        2px 3px 0 #d6ae65;
 }
 
 .selection__header p {
-    font-size: 1.2rem;
+    margin: 0;
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+    color: #705238;
 }
 
 
-/* MAPAS */
-
-.map-selection {
-    margin-bottom: 50px;
-}
+/* =========================================
+   TITULOS
+========================================= */
 
 .map-selection h2,
 .cards-selection h2 {
-    margin-bottom: 20px;
+    margin: 0 0 15px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    color: #67432b;
+}
+
+
+/* =========================================
+   MAPAS
+========================================= */
+
+.map-selection {
+    margin-bottom: 70px;
 }
 
 .map-selection__container {
     display: grid;
+
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+
+    gap: 18px;
+
+    max-width: 1350px;
+
+    margin: 30px auto 0;
 }
 
+
+/* =========================================
+   TARJETA DEL MAPA
+========================================= */
+
 .map {
-    padding: 20px;
+    position: relative;
 
-    border-radius: 15px;
+    min-height: 145px;
 
-    background-color: #211a2c;
+    padding: 22px;
 
-    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: 3px solid #795331;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f9e8b9,
+            #eacb8b
+        );
+
+    box-shadow:
+        0 6px 0 #9a7042,
+        0 12px 20px rgba(82, 52, 25, 0.18);
 
     cursor: pointer;
 
+    overflow: hidden;
+
     transition:
         transform 0.2s ease,
+        box-shadow 0.2s ease,
         border-color 0.2s ease;
 }
 
-.map:hover {
-    transform: translateY(-5px);
+
+/* Decoración */
+
+.map::before {
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    top: -35px;
+    right: -30px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.25);
 }
+
+
+.map:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 0 #9a7042,
+        0 18px 25px rgba(82, 52, 25, 0.25);
+}
+
 
 .map--selected {
-    border-color: #7c3aed;
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+
+    border-color: #c38b32;
+
+    box-shadow:
+        0 0 0 4px rgba(255, 222, 133, 0.8),
+        0 10px 0 #8a5d27,
+        0 20px 30px rgba(82, 52, 25, 0.3);
 }
+
 
 .map h3 {
-    margin-bottom: 10px;
+    position: relative;
+
+    margin: 0 0 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.35rem;
+
+    color: #5b3924;
 }
+
 
 .map p {
-    font-size: 0.9rem;
+    position: relative;
+
+    margin: 0;
+
+    font-size: 0.88rem;
+
+    line-height: 1.5;
+
+    color: #75583d;
 }
 
 
-/* CARTAS */
+/* =========================================
+   SECCIÓN CARTAS
+========================================= */
 
 .cards-selection {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 #map-message {
-    margin-bottom: 25px;
+    margin: 0 auto 35px;
+
+    text-align: center;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    color: #76583b;
 }
+
+
+/* =========================================
+   CONTENEDOR DE CARTAS
+========================================= */
 
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 25px;
+
+    width: 100%;
+
+    max-width: 1450px;
+
+    margin: 0 auto;
 }
 
+
+/* =========================================
+   CARTA BASE
+========================================= */
+
 .card {
-    padding: 20px;
+    position: relative;
 
-    border-radius: 15px;
+    min-width: 0;
 
-    background-color: #211a2c;
+    padding: 16px;
 
-    border: 2px solid transparent;
+    box-sizing: border-box;
+
+    border: 4px solid #795331;
+
+    border-radius: 20px;
+
+    background: #f3dca8;
+
+    color: #4a3020;
 
     cursor: pointer;
 
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 0 #8b6339,
+        0 12px 20px rgba(69, 43, 22, 0.2);
+
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
 }
+
+
+/* Línea decorativa superior */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 12px;
+    right: 12px;
+
+    height: 5px;
+
+    border-radius: 0 0 8px 8px;
+
+    background: rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) rotate(-1deg);
+
+    box-shadow:
+        0 12px 0 #8b6339,
+        0 18px 28px rgba(69, 43, 22, 0.28);
 }
 
-.card--selected {
-    border-color: #7c3aed;
-    transform: translateY(-5px);
+.card__image {
+    display: block;
+
+    width: 100%;
+    height: 230px;
+
+    object-fit: contain;
+
+    margin: 5px auto 15px;
+
+    filter:
+        drop-shadow(
+            0 8px 6px rgba(50, 25, 10, 0.25)
+        );
+
+    transition: transform 0.25s ease;
 }
+
+
+.card:hover .card__image {
+    transform: scale(1.05);
+}
+
+/* =========================================
+   COLORES DE LOS REINOS
+========================================= */
+
+
+/* REINO DULCE */
+
+.card--reino_dulce {
+    background:
+        linear-gradient(
+            145deg,
+            #f8ccd9,
+            #eca4bc
+        );
+
+    border-color: #96506a;
+
+    color: #512c39;
+}
+
+.card--reino_dulce::before {
+    background: #fff0f5;
+}
+
+
+/* REINO HELADO */
+
+.card--reino_helado {
+    background:
+        linear-gradient(
+            145deg,
+            #d9f3f5,
+            #9bd3dc
+        );
+
+    border-color: #4e858d;
+
+    color: #29464a;
+}
+
+.card--reino_helado::before {
+    background: #efffff;
+}
+
+
+/* NIGHTOSFERA */
+
+.card--nightosfera {
+    background:
+        linear-gradient(
+            145deg,
+            #c34a52,
+            #962b39
+        );
+
+    border-color: #62212a;
+
+    color: #fff0e8;
+}
+
+.card--nightosfera::before {
+    background: #f7b5b5;
+}
+
+
+/* TIERRAS SALVAJES */
+
+.card--tierras_salvajes {
+    background:
+        linear-gradient(
+            145deg,
+            #b9d878,
+            #8db45a
+        );
+
+    border-color: #55713c;
+
+    color: #30421f;
+}
+
+.card--tierras_salvajes::before {
+    background: #e7f4bd;
+}
+
+
+/* REINO CÓSMICO */
+
+.card--reino_cosmico {
+    background:
+        linear-gradient(
+            145deg,
+            #a18bd0,
+            #8065b8
+        );
+
+    border-color: #554078;
+
+    color: #f8f2ff;
+}
+
+.card--reino_cosmico::before {
+    background: #dcd1ff;
+}
+
+
+/* =========================================
+   NOMBRE DEL PERSONAJE
+========================================= */
 
 .card h3 {
-    margin-bottom: 10px;
+    position: relative;
+
+    margin: 0 0 10px;
+
+    min-height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.2rem;
+
+    line-height: 1.2;
 }
+
+
+/* =========================================
+   TIPO
+========================================= */
 
 .card__type {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+    margin: 0 0 14px;
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    opacity: 0.7;
 }
 
+
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
+
 .card__description {
-    margin-bottom: 15px;
+    min-height: 42px;
+
+    margin: 0 0 15px;
+
+    font-size: 0.88rem;
+
+    line-height: 1.5;
 }
+
+
+/* =========================================
+   ESTADÍSTICAS
+========================================= */
 
 .card__stats {
     display: flex;
+
     justify-content: space-between;
+
+    gap: 10px;
+
     margin-bottom: 15px;
+
+    padding: 9px 11px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    border: 2px solid rgba(80, 45, 25, 0.15);
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
 }
+
+
+/* =========================================
+   HABILIDAD
+========================================= */
 
 .card__ability {
-    font-size: 0.9rem;
+    margin: 0;
+
+    padding-top: 13px;
+
+    border-top: 2px dashed rgba(80, 45, 25, 0.25);
+
+    font-size: 0.78rem;
+
+    line-height: 1.5;
 }
 
 
-/* BOTÓN */
+/* =========================================
+   CARTA SELECCIONADA
+========================================= */
+
+.card--selected {
+    transform:
+        translateY(-12px)
+        scale(1.04);
+
+    z-index: 10;
+
+    border-color: #fff0a8;
+
+    box-shadow:
+        0 0 0 4px #9c6d2d,
+        0 12px 0 #765022,
+        0 20px 35px rgba(55, 35, 15, 0.35);
+}
+
+
+/* Evitar que el hover cambie demasiado
+   una carta ya seleccionada */
+
+.card--selected:hover {
+    transform:
+        translateY(-14px)
+        scale(1.05);
+}
+
+
+/* =========================================
+   MARCA DE SELECCIÓN
+========================================= */
+
+.card--selected::after {
+    content: "✓";
+
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f8d96b;
+
+    border: 3px solid #795331;
+
+    color: #5b3a20;
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 8px rgba(60, 35, 15, 0.25);
+}
+
+
+/* =========================================
+   BOTÓN BATALLA
+========================================= */
 
 .selection__button {
     display: block;
 
-    margin: 40px auto 0;
+    margin: 50px auto 0;
 
-    padding: 15px 40px;
+    padding: 16px 45px;
 
-    border: none;
-    border-radius: 10px;
+    border: 3px solid #795331;
 
-    font-size: 1rem;
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            #f3d477,
+            #d49b3c
+        );
+
+    color: #fff8df;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.15rem;
+
+    font-weight: bold;
 
     cursor: pointer;
+
+    box-shadow:
+        0 6px 0 #795331,
+        0 12px 20px rgba(75, 45, 20, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+
+.selection__button:hover:not(:disabled) {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 0 #795331,
+        0 16px 25px rgba(75, 45, 20, 0.3);
+}
+
+
+.selection__button:active:not(:disabled) {
+    transform: translateY(2px);
+
+    box-shadow:
+        0 3px 0 #795331;
+}
+
 
 .selection__button:disabled {
     opacity: 0.5;
+
     cursor: not-allowed;
 }
 
 
-/* RESPONSIVE */
+/* =========================================
+   RESPONSIVE
+========================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
     .map-selection__container,
     .cards-container {
@@ -170,7 +686,12 @@
 
 }
 
-@media (max-width: 700px) {
+
+@media (max-width: 750px) {
+
+    .selection {
+        padding: 40px 20px 60px;
+    }
 
     .map-selection__container,
     .cards-container {
@@ -179,11 +700,21 @@
 
 }
 
+
 @media (max-width: 500px) {
 
     .map-selection__container,
     .cards-container {
         grid-template-columns: 1fr;
+    }
+
+    .selection__header h1 {
+        font-size: 2.5rem;
+    }
+
+    .map-selection h2,
+    .cards-selection h2 {
+        font-size: 2rem;
     }
 
 }
