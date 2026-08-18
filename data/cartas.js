@@ -2,12 +2,14 @@ export const mapas = [
     {
         id: "reino_dulce",
         nombre: "Reino Dulce",
+        imagen: "../assets/cartas/princesa-chicle.webp",
         descripcion:
             "El corazón del Dulce Reino, gobernado con mano firme por la Princesa Chicle. Un lugar brillante, colorido y muy ordenado, donde la ciencia y el azúcar se mezclan.",
         cartas: [
             {
                 nombre: "Princesa Chicle",
                 tipo: "Dulce",
+                imagen: "../assets/img/personaje dulce princesa.webp",
                 descripcion: "La dulce dictadora",
                 vida: 5,
                 ataque: 4,
@@ -16,22 +18,27 @@ export const mapas = [
             {
                 nombre: "Mentita",
                 tipo: "Dulce",
+                imagen: "../assets/img/mentita.webp",
                 descripcion: "El mayordomo con secretos",
                 vida: 4,
                 ataque: 5,
                 habilidad: "+2 ataque el primer turno que entra en juego"
             },
             {
-                nombre: "Árbol de las Manzanas",
-                tipo: "Dulce",
-                descripcion: "El consejero sabio",
-                vida: 6,
-                ataque: 3,
-                habilidad: "Otorga +1 vida a todas las cartas Dulces en juego"
+                nombre: "Dulce Tronquitos",
+                tipo: "Elefante",
+                imagen: "../assets/img/Dulce_Tronquitos.webp",
+                descripcion:
+                    "El anciano sabio y tranquilo",
+                vida: 8,
+                ataque: 2,
+                habilidad:
+                    "Bloquea: reduce a la mitad el daño del próximo ataque recibido"
             },
             {
                 nombre: "Lemongrab",
                 tipo: "Limón",
+                imagen: "../assets/img/limon.webp",
                 descripcion: "El gobernante gritón e injusto",
                 vida: 6,
                 ataque: 6,
@@ -41,6 +48,7 @@ export const mapas = [
             {
                 nombre: "NEPTR",
                 tipo: "Robot",
+                imagen: "../assets/img/NEPTR.webp",
                 descripcion: "El horno con maldad programada",
                 vida: 4,
                 ataque: 6,
@@ -53,12 +61,14 @@ export const mapas = [
     {
         id: "reino_helado",
         nombre: "Reino Helado",
+        imagen: "../assets/cartas/princesa-chicle.webp",
         descripcion:
             "Tierras heladas y solitarias en la cima de las montañas, dominadas por la magia caótica y la soledad del Rey Helado.",
         cartas: [
             {
                 nombre: "Rey Helado",
                 tipo: "Hielo",
+                imagen: "../assets/img/rey.webp",
                 descripcion: "El rey loco",
                 vida: 8,
                 ataque: 5,
@@ -68,6 +78,7 @@ export const mapas = [
             {
                 nombre: "Simon Petrikov",
                 tipo: "Hielo",
+                imagen: "../assets/img/simon.webp",
                 descripcion: "El hombre detrás del Rey Helado",
                 vida: 7,
                 ataque: 4,
@@ -77,6 +88,7 @@ export const mapas = [
             {
                 nombre: "Gunter",
                 tipo: "Pingüino",
+                imagen: "../assets/img/gunter.webp",
                 descripcion: "El pingüino misterioso",
                 vida: 3,
                 ataque: 2,
@@ -86,32 +98,37 @@ export const mapas = [
             {
                 nombre: "Multicolor (Lady Rainicornio)",
                 tipo: "Arcoíris",
+                imagen: "../assets/img/arcoiris.webp",
                 descripcion: "La unicornio arcoíris, novia de Jake",
                 vida: 5,
                 ataque: 4,
                 habilidad: "Se puede colocar en cualquier mapa"
             },
             {
-                nombre: "Búho Cósmico",
-                tipo: "Cósmico",
-                descripcion: "El vigilante de los sueños",
-                vida: 5,
+                nombre: "Beemo",
+                tipo: "Robot",
+                imagen: "../assets/img/BMO.webp",
+                descripcion:
+                    "La consola viviente",
+                vida: 4,
                 ataque: 3,
                 habilidad:
-                    "Al entrar, mira las 3 cartas superiores de tu mazo y elige una"
-            }
+                    "Puede escanear la próxima carta del rival"
+            },
         ]
     },
 
     {
         id: "nightosfera",
         nombre: "Nightosfera",
+        imagen: "../assets/cartas/princesa-chicle.webp",
         descripcion:
             "El inframundo oscuro, hogar de demonios, vampiros y criaturas del caos, gobernado por Hunson Abadeer.",
         cartas: [
             {
                 nombre: "Marceline",
                 tipo: "Vampiro",
+                imagen: "../assets/img/Marceline_bat.webp",
                 descripcion: "La vampira roquera",
                 vida: 6,
                 ataque: 7,
@@ -120,6 +137,7 @@ export const mapas = [
             {
                 nombre: "Hunson Abadeer",
                 tipo: "Tinieblas",
+            imagen: "../assets/img/hudson.webp",
                 descripcion:
                     "El señor de las tinieblas, padre de Marceline",
                 vida: 9,
@@ -130,6 +148,7 @@ export const mapas = [
             {
                 nombre: "Flama (Princesa Llama)",
                 tipo: "Fuego",
+                imagen: "../assets/img/flama.webp",
                 descripcion: "La princesa de fuego",
                 vida: 5,
                 ataque: 9,
@@ -139,6 +158,7 @@ export const mapas = [
             {
                 nombre: "Prismo",
                 tipo: "Cósmico",
+                imagen: "../assets/img/prismo.webp",
                 descripcion:
                     "El ser que concede deseos, atrapado fuera del tiempo",
                 vida: 9,
@@ -147,8 +167,9 @@ export const mapas = [
                     "Concede un deseo: roba una carta extra (una vez por partida)"
             },
             {
-                nombre: "Bruja Cazadora",
+                nombre: "Maga Cazadora",
                 tipo: "Bosque",
+                imagen: "../assets/img/maga.webp",
                 descripcion:
                     "La guerrera oculta entre los árboles",
                 vida: 6,
@@ -162,12 +183,14 @@ export const mapas = [
     {
         id: "tierras_salvajes",
         nombre: "Tierras Salvajes",
+        imagen: "../assets/cartas/princesa-chicle.webp",
         descripcion:
             "Bosques, llanuras y cuevas fuera de cualquier reino, donde los aventureros y las criaturas mágicas conviven libremente.",
         cartas: [
             {
                 nombre: "Fin",
                 tipo: "Humano",
+                imagen: "../assets/img/finnH.webp",
                 descripcion: "Hermano",
                 vida: 7,
                 ataque: 6,
@@ -177,6 +200,7 @@ export const mapas = [
             {
                 nombre: "Jake",
                 tipo: "Perro Mágico",
+                imagen: "../assets/img/jakee.webp",
                 descripcion: "Mejor amigo de Fin",
                 vida: 6,
                 ataque: 8,
@@ -186,6 +210,7 @@ export const mapas = [
             {
                 nombre: "Fionna",
                 tipo: "Humano",
+                imagen: "../assets/img/Fionna.webp",
                 descripcion:
                     "La aventurera de otro universo",
                 vida: 7,
@@ -196,6 +221,7 @@ export const mapas = [
             {
                 nombre: "Cake",
                 tipo: "Gato Mágico",
+                imagen: "../assets/img/Cake.webp",
                 descripcion:
                     "La gata elástica, mejor amiga de Fionna",
                 vida: 6,
@@ -203,15 +229,14 @@ export const mapas = [
                 habilidad:
                     "Cambia de tamaño: +3 vida por 1 turno"
             },
-            {
-                nombre: "Tronco Gordo",
-                tipo: "Elefante",
-                descripcion:
-                    "El anciano sabio y tranquilo",
-                vida: 8,
-                ataque: 2,
-                habilidad:
-                    "Bloquea: reduce a la mitad el daño del próximo ataque recibido"
+             {
+                nombre: "Tronquitos",
+                tipo: "Dulce",
+                imagen: "../assets/img/Trunks.webp",
+                descripcion: "El consejero sabio",
+                vida: 6,
+                ataque: 3,
+                habilidad: "Otorga +1 vida a todas las cartas Dulces en juego"
             }
         ]
     },
@@ -219,12 +244,14 @@ export const mapas = [
     {
         id: "reino_cosmico",
         nombre: "Reino Cósmico",
+        imagen: "../assets/cartas/princesa-chicle.webp",
         descripcion:
             "Un plano fuera del tiempo y el espacio, habitado por seres todopoderosos, héroes legendarios y magos errantes.",
         cartas: [
             {
                 nombre: "Ceniza (Ash)",
                 tipo: "Humano",
+                imagen: "../assets/img/Ash.webp",
                 descripcion: "El ex mago tramposo",
                 vida: 4,
                 ataque: 5,
@@ -234,6 +261,7 @@ export const mapas = [
             {
                 nombre: "LSP",
                 tipo: "Lumpy",
+                imagen: "../assets/img/grumosa.webp",
                 descripcion: "La dramática",
                 vida: 5,
                 ataque: 3,
@@ -243,6 +271,7 @@ export const mapas = [
             {
                 nombre: "Billy",
                 tipo: "Héroe",
+                imagen: "../assets/img/billy.webp",
                 descripcion:
                     "El héroe legendario retirado",
                 vida: 9,
@@ -251,18 +280,19 @@ export const mapas = [
                     "Al entrar, todas tus cartas ganan +1 ataque"
             },
             {
-                nombre: "Beemo",
-                tipo: "Robot",
-                descripcion:
-                    "La consola viviente",
-                vida: 4,
+                nombre: "Búho Cósmico",
+                tipo: "Cósmico",
+                imagen: "../assets/img/buho.webp",
+                descripcion: "El vigilante de los sueños",
+                vida: 5,
                 ataque: 3,
                 habilidad:
-                    "Puede escanear la próxima carta del rival"
+                    "Al entrar, mira las 3 cartas superiores de tu mazo y elige una"
             },
             {
                 nombre: "Betty Grof",
                 tipo: "Humano/Bruja",
+                imagen: "../assets/img/betty.webp",
                 descripcion:
                     "La bruja del tiempo, antigua novia de Simon",
                 vida: 6,

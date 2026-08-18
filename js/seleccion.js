@@ -88,17 +88,25 @@ function seleccionarMapa(mapa, mapElement) {
 
 /* CREAR CARTA */
 
-function crearCarta(carta) {
+function crearCarta(carta, mapa) {
 
     const card = document.createElement("article");
 
     card.classList.add("card");
+    card.classList.add(`card--${mapa.id}`);
+
+    const image = document.createElement("img");
+
+    image.classList.add("card__image");
+
+    image.src = carta.imagen;
+
+    image.alt = carta.nombre;
 
 
     const title = document.createElement("h3");
 
     title.textContent = carta.nombre;
-
 
     const type = document.createElement("p");
 
@@ -143,6 +151,8 @@ function crearCarta(carta) {
 
 
     card.appendChild(title);
+
+    card.appendChild(image);
 
     card.appendChild(type);
 
@@ -254,8 +264,7 @@ function mostrarCartas() {
 
         mapa.cartas.forEach((carta) => {
 
-            const cardElement =
-                crearCarta(carta);
+            const cardElement = crearCarta(carta, mapa);
 
             cardsContainer.appendChild(
                 cardElement
